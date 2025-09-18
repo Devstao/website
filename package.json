@@ -8,6 +8,7 @@
   },
   "scripts": {
     "dev": "vite",
+    "deploy": "run-p build && run-p preview",
     "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
     "test:unit": "vitest",
