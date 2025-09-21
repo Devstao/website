@@ -15,16 +15,14 @@
           </RouterLink>
         </li>
         <li class="nav-items">
-          <a class="nav-links" href="#">Projetos</a>
+          <RouterLink :to="{ name: 'projetos' }" class="nav-links" active-class="current-item">
+            Projetos
+          </RouterLink>
         </li>
-        <li class="nav-items">
-          <a class="nav-links" href="#">Blog</a>
-        </li>
-        <li class="nav-items">
-          <a class="nav-links" href="#">Contato</a>
-        </li>
-        <li class="nav-items">
-          <a class="nav-links" href="https://linktr.ee/BavarianGrove" target="_blank">Comunidade</a>
+        <li class="nav-items-bavarian-grove">
+          <a class="btn-bavarian-grove" href="https://linktr.ee/BavarianGrove" target="_blank"
+            >Comunidade</a
+          >
         </li>
       </ul>
     </nav>
@@ -104,5 +102,34 @@
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.nav-items-bavarian-grove {
+  color: whitesmoke;
+  text-decoration: none;
+  font-size: 1.2rem;
+
+  font-weight: 800;
+
+  padding: 0.5rem 0.8rem;
+  border-radius: 2px;
+  transition:
+    background 0.2s,
+    text-decoration 0.2s;
+}
+
+.nav-items-bavarian-grove a:hover {
+  background: #a58109;
+  color: rgba(245, 245, 245, 0.644)55, 255);
+}
+
+.btn-bavarian-grove {
+  background: #5c4705;
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.2s;
+  padding: 0.5rem 1rem;
 }
 </style>
