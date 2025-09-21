@@ -33,8 +33,6 @@ onMounted(() => {
 <style lang="css" scoped>
 .content {
   margin: 50px;
-  margin-top: 150px;
-
   display: flex;
   justify-content: space-between;
   gap: 15px;

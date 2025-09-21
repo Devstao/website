@@ -5,8 +5,7 @@ import HeaderView from './components/HeaderView.vue'
 
 <template>
   <HeaderView />
-
-  <RouterView v-slot="{ Component }">
+  <RouterView v-slot="{ Component }" class="margin-header">
     <transition name="fade" mode="out-in">
       <component :is="Component" />
     </transition>
@@ -22,5 +21,9 @@ import HeaderView from './components/HeaderView.vue'
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+}
+
+.margin-header {
+  margin-top: 160px;
 }
 </style>
