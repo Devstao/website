@@ -10,7 +10,9 @@
           </RouterLink>
         </li>
         <li class="nav-items">
-          <a class="nav-links" href="#">Sobre</a>
+          <RouterLink :to="{ name: 'sobre' }" class="nav-links" active-class="current-item">
+            Sobre
+          </RouterLink>
         </li>
         <li class="nav-items">
           <a class="nav-links" href="#">Projetos</a>
