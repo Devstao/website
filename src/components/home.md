@@ -18,7 +18,7 @@ Um espaço criado para estudo, networking e desenvolvimento de projetos colabora
 
 Fortalecer a comunidade, incentivar o aprendizado contínuo e criar um ambiente onde todos possam **contribuir, crescer e fazer parte de algo maior**.
 
-# Projetos Devstão
+# Projetos DEVstão
 
 ## [Como contribuir](../doc/CONTRIBUTING.md)
 

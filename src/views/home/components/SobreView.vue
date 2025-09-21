@@ -1,18 +1,53 @@
+<script setup lang="ts">
+import SrcPardo from '@/assets/pardo.jpg'
+</script>
+
 <template>
-  <div class="text-sobre">
-    <h1 class="header-sobre">Sobre a Comunidade</h1>
-    <p class="paragrafo-sobre">
-      <span style="font-weight: bold">DEVstão</span> é a organização oficial da comunidade de
-      desenvolvedores do <span style="font-weight: bold">Renato Impera</span> (vulgo PARDO). Um
-      espaço criado para estudo, networking e desenvolvimento de projetos colaborativos.
-    </p>
+  <div class="content">
+    <div class="text-sobre">
+      <h1 class="header-sobre">Sobre a Comunidade</h1>
+      <p class="paragrafo-sobre">
+        <span style="font-weight: bold">DEVstão</span> é a organização oficial da comunidade de
+        desenvolvedores do <span style="font-weight: bold">Renato Impera</span> (vulgo PARDO). Um
+        espaço criado para estudo, networking e desenvolvimento de projetos colaborativos.
+      </p>
+    </div>
+
+    <div class="image-pardo">
+      <img class="src-pardo" :src="SrcPardo" alt="pardo" />
+    </div>
   </div>
 </template>
 
 <style lang="css" scoped>
-.text-sobre {
+.content {
   margin: 50px;
   margin-top: 150px;
+
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.content .image-pardo {
+  display: flex; /* Centraliza o conteúdo usando flexbox */
+  align-items: center; /* Alinha verticalmente ao centro */
+  justify-content: center; /* Alinha horizontalmente ao centro */
+  padding: 25px;
+  width: 50%; /* Mantém metade do espaço do container */
+  height: 100%; /* Garante altura total do container */
+  border-radius: 5px;
+  background-color: rgba(53, 53, 53, 0.397);
+}
+
+.content .image-pardo .src-pardo {
+  width: 30%;
+  height: auto;
+  max-width: 600px;
+  border-radius: 5px;
+}
+
+.content .text-sobre {
   border-radius: 10px;
   border-style: solid;
   border-width: 3px;

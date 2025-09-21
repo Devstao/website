@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <nav class="navbar">
-      <h1 class="navbar-brand" style="">Devstão</h1>
+      <h1 class="navbar-brand" style="">DEVstão</h1>
 
       <ul class="nav-links" style="list-style: none; margin: 0; padding: 0">
         <li class="nav-items">
