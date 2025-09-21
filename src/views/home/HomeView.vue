@@ -1,13 +1,10 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import SobreView from './components/SobreView.vue'
+</script>
 
 <template>
   <div class="on-center">
-    <h1>Ainda sem nada por Aqui</h1>
-
-    <p class="paragraph">
-      Enquanto isso, entre na
-      <a class="link-bavarian-grove" href="https://linktr.ee/BavarianGrove">nossa comunidade</a>
-    </p>
+    <SobreView />
   </div>
 </template>
 
