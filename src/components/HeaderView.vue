@@ -120,7 +120,7 @@
 
 .nav-items-bavarian-grove a:hover {
   background: #a58109;
-  color: rgba(245, 245, 245, 0.644)55, 255);
+  color: rgba(245, 245, 245, 0.644);
 }
 
 .btn-bavarian-grove {
