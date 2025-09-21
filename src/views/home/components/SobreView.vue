@@ -1,22 +1,33 @@
 <script setup lang="ts">
 import SrcPardo from '@/assets/pardo.jpg'
+import { onMounted, ref } from 'vue'
+
+const paginaVisivel = ref(false)
+
+onMounted(() => {
+  setTimeout(() => {
+    paginaVisivel.value = true
+  }, 200)
+})
 </script>
 
 <template>
-  <div class="content">
-    <div class="text-sobre">
-      <h1 class="header-sobre">Sobre a Comunidade</h1>
-      <p class="paragrafo-sobre">
-        <span style="font-weight: bold">DEVstão</span> é a organização oficial da comunidade de
-        desenvolvedores do <span style="font-weight: bold">Renato Impera</span> (vulgo PARDO). Um
-        espaço criado para estudo, networking e desenvolvimento de projetos colaborativos.
-      </p>
-    </div>
+  <Transition name="fade" mode="out-in">
+    <div class="content" v-if="paginaVisivel">
+      <div class="text-sobre">
+        <h1 class="header-sobre">Sobre a Comunidade</h1>
+        <p class="paragrafo-sobre">
+          <span style="font-weight: bold">DEVstão</span> é a organização oficial da comunidade de
+          desenvolvedores do <span style="font-weight: bold">Renato Impera</span> (vulgo PARDO). Um
+          espaço criado para estudo, networking e desenvolvimento de projetos colaborativos.
+        </p>
+      </div>
 
-    <div class="image-pardo">
-      <img class="src-pardo" :src="SrcPardo" alt="pardo" />
+      <div class="image-pardo">
+        <img class="src-pardo" :src="SrcPardo" alt="pardo" />
+      </div>
     </div>
-  </div>
+  </Transition>
 </template>
 
 <style lang="css" scoped>
@@ -69,5 +80,15 @@ import SrcPardo from '@/assets/pardo.jpg'
   font-family:
     'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana,
     sans-serif;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>

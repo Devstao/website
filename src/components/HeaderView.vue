@@ -5,7 +5,9 @@
 
       <ul class="nav-links" style="list-style: none; margin: 0; padding: 0">
         <li class="nav-items">
-          <a class="nav-links" href="#">Início</a>
+          <RouterLink :to="{ name: 'index' }" class="nav-links" active-class="current-item">
+            Início
+          </RouterLink>
         </li>
         <li class="nav-items">
           <a class="nav-links" href="#">Sobre</a>
@@ -72,6 +74,11 @@
 .nav-items a:hover {
   background: rgba(255, 255, 255, 0.08);
   color: whitesmoke;
+}
+
+.current-item {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(223, 184, 77, 0.644);
 }
 
 .navbar-brand {
