@@ -1,2 +1,1 @@
-
-
+console.log('buru nyuu')
