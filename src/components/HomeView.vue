@@ -1,4 +1,9 @@
+<script setup lang="ts">
+import HeaderView from './HeaderView.vue'
+</script>
+
 <template>
+  <HeaderView />
   <div class="on-center">
     <h1>Ainda sem nada por Aqui</h1>
 
@@ -23,12 +28,11 @@
 .paragraph {
   text-align: center;
   margin-top: 5rem;
-
   font-weight: bold;
 }
 
 .link-bavarian-grove {
-  color: #3b82f6;
+  color: #dbd963;
   text-decoration: none;
 }
 
