@@ -37,7 +37,8 @@ import { RouterLink } from 'vue-router'
 }
 .hero-subtitle {
   font-size: 1.2rem;
-  margin-bottom: 2rem;
+  margin-top: 3rem;
+  margin-bottom: 2.5rem;
   line-height: 1.6;
 }
 .hero-cta {
