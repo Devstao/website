@@ -23,7 +23,7 @@
 body {
   background-color: var(--black);
   color: var(--ash-gray);
-  width: 100dvh;
+  width: 100dvw;
   height: 100dvh;
   overflow: hidden;
 }

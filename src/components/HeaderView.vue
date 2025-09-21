@@ -1,14 +1,18 @@
 <template>
   <header class="header">
     <nav class="navbar">
-      <h1 class="navbar-brand" style="">Devstão</h1>
+      <h1 class="navbar-brand" style="">DEVstão</h1>
 
       <ul class="nav-links" style="list-style: none; margin: 0; padding: 0">
         <li class="nav-items">
-          <a class="nav-links" href="#">Início</a>
+          <RouterLink :to="{ name: 'index' }" class="nav-links" active-class="current-item">
+            Início
+          </RouterLink>
         </li>
         <li class="nav-items">
-          <a class="nav-links" href="#">Sobre</a>
+          <RouterLink :to="{ name: 'sobre' }" class="nav-links" active-class="current-item">
+            Sobre
+          </RouterLink>
         </li>
         <li class="nav-items">
           <a class="nav-links" href="#">Projetos</a>
@@ -37,6 +41,7 @@
 }
 
 .header {
+  font-size: 1.3rem;
   position: fixed;
   top: 0;
   left: 0;
@@ -57,7 +62,10 @@
 .nav-items a {
   color: var(--ash-gray);
   text-decoration: none;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+
+  font-weight: 800;
+
   padding: 0.5rem 0.8rem;
   border-radius: 4px;
   transition:
@@ -70,6 +78,11 @@
   color: whitesmoke;
 }
 
+.current-item {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(223, 184, 77, 0.644);
+}
+
 .navbar-brand {
   color: var(--ash-gray);
   margin-left: 1rem;
@@ -79,7 +92,14 @@
 
 .navbar-brand:hover {
   animation: rainbow 1.5s linear infinite;
-  background: linear-gradient(90deg, #ffd700, #ffc300, #ffb300, #e6be8a, #bfa640);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 217, 0, 0.753),
+    rgba(255, 195, 0, 0.753),
+    rgba(255, 179, 0, 0.753),
+    rgba(230, 190, 138, 0.753),
+    rgba(191, 166, 64, 0.753)
+  );
   background-size: 400% 100%;
   -webkit-background-clip: text;
   background-clip: text;
