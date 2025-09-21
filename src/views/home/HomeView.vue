@@ -1,28 +1,24 @@
 <script setup lang="ts">
-import HeaderView from './HeaderView.vue'
+import HeaderView from '@/components/HeaderView.vue'
+import SobreView from './components/SobreView.vue'
 </script>
 
 <template>
   <HeaderView />
   <div class="on-center">
-    <h1>Ainda sem nada por Aqui</h1>
-
-    <p class="paragraph">
-      Enquanto isso, entre na
-      <a class="link-bavarian-grove" href="https://linktr.ee/BavarianGrove">nossa comunidade</a>
-    </p>
+    <SobreView />
   </div>
 </template>
 
 <style lang="css">
 .on-center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
-  align-items: center;
+  width: 100%;
+  height: 90%;
+  padding: 6px;
+  margin-top: 85px;
+  overflow-y: auto;
 }
 
 .paragraph {
