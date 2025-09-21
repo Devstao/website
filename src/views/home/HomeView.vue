@@ -1,10 +1,8 @@
 <script setup lang="ts">
-import HeaderView from '@/components/HeaderView.vue'
 import SobreView from './components/SobreView.vue'
 </script>
 
 <template>
-  <HeaderView />
   <div class="on-center">
     <SobreView />
   </div>
