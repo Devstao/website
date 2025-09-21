@@ -37,6 +37,7 @@
 }
 
 .header {
+  font-size: 1.3rem;
   position: fixed;
   top: 0;
   left: 0;
@@ -57,7 +58,10 @@
 .nav-items a {
   color: var(--ash-gray);
   text-decoration: none;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+
+  font-weight: 800;
+
   padding: 0.5rem 0.8rem;
   border-radius: 4px;
   transition:
@@ -79,7 +83,14 @@
 
 .navbar-brand:hover {
   animation: rainbow 1.5s linear infinite;
-  background: linear-gradient(90deg, #ffd700, #ffc300, #ffb300, #e6be8a, #bfa640);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 217, 0, 0.753),
+    rgba(255, 195, 0, 0.753),
+    rgba(255, 179, 0, 0.753),
+    rgba(230, 190, 138, 0.753),
+    rgba(191, 166, 64, 0.753)
+  );
   background-size: 400% 100%;
   -webkit-background-clip: text;
   background-clip: text;
