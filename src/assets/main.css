@@ -1,35 +1,28 @@
-@import './base.css';
-
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-weight: normal;
+:root {
+  /* CSS HEX */
+  --black: #000000ff;
+  --onyx: #363946ff;
+  --dim-gray: #696773ff;
+  --cadet-gray: #819595ff;
+  --ash-gray: #b1b6a6ff;
+  /* CSS HSL */
+  --black: hsla(0, 0%, 0%, 1);
+  --onyx: hsla(229, 13%, 24%, 1);
+  --dim-gray: hsla(250, 6%, 43%, 1);
+  --cadet-gray: hsla(180, 9%, 55%, 1);
+  --ash-gray: hsla(79, 10%, 68%, 1);
+  /* SCSS HEX */
+  /* SCSS HSL */
+  /* SCSS RGB */
+  /* SCSS Gradient */
 }
 
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
-}
+/*# sourceMappingURL=main.css.map */
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
-}
 
-@media (min-width: 1024px) {
+@media (prefers-color-scheme: dark) {
   body {
-    display: flex;
-    place-items: center;
-  }
-
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
+    background-color: var(--black);
+    color: var(--ash-gray);
   }
 }
