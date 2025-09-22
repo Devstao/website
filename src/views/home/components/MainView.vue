@@ -31,7 +31,7 @@ import { RouterLink } from 'vue-router'
   max-width: 600px;
 }
 .hero-title {
-  font-size: 2.5rem;
+  font-size: 3.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
   letter-spacing: 1px;
