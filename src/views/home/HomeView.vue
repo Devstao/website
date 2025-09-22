@@ -7,7 +7,7 @@ const router = useRouter()
 onMounted(() => {
   setTimeout(() => {
     router.push({ name: 'sobre' })
-  }, 8000) // Redireciona após 8 segundos (8000 milissegundos)
+  }, 15000) // Redireciona após 8 segundos (8000 milissegundos)
 })
 </script>
 

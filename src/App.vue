@@ -25,7 +25,7 @@ onMounted((): void => {
   function inicializaVolumeVideo(): void {
     if (videoRef.value) {
       videoRef.value.volume = 0
-      const targetVolume = 0.005
+      const targetVolume = 0.0025
       const step = 0.00001
       const interval = setInterval(() => {
         if (videoRef.value && videoRef.value.volume < targetVolume) {
