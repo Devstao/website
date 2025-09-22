@@ -25,7 +25,7 @@ onMounted((): void => {
   function inicializaVolumeVideo(): void {
     if (videoRef.value) {
       videoRef.value.volume = 0
-      const targetVolume = 0.0005
+      const targetVolume = 0.005
       const step = 0.00001
       const interval = setInterval(() => {
         if (videoRef.value && videoRef.value.volume < targetVolume) {
@@ -33,7 +33,7 @@ onMounted((): void => {
         } else {
           clearInterval(interval)
         }
-      }, 110) // Ajuste o intervalo conforme necessário
+      }, 80) // Ajuste o intervalo conforme necessário
       setTimeout(() => {
         videoRef.value?.play()
       }, 300)
@@ -60,14 +60,7 @@ onMounted((): void => {
   <div class="background-video-wrapper">
     <div class="background-blur"></div>
     <!-- Vídeo local como background -->
-    <video
-      ref="videoRef"
-      class="background-video"
-      src="@/assets/background.mp4"
-      autoplay
-      loop
-      playsinline
-    ></video>
+
     <div class="background-overlay"></div>
 
     <RouterView v-slot="{ Component }" class="margin-header">
@@ -97,7 +90,7 @@ onMounted((): void => {
   height: 100vh;
   z-index: 0;
   pointer-events: none;
-  filter: blur(36px) brightness(0.7);
+  filter: blur(66px) brightness(0.7);
   object-fit: cover;
 }
 
@@ -108,7 +101,7 @@ onMounted((): void => {
   width: 100vw;
   height: 100vh;
   z-index: 1;
-  backdrop-filter: blur(36px);
+  backdrop-filter: blur(66px);
 }
 
 .background-overlay {
@@ -118,7 +111,7 @@ onMounted((): void => {
   width: 100vw;
   height: 100vh;
   z-index: 2;
-  background: rgba(30, 30, 40, 0.753); /* Ajuste a cor conforme o background desejado */
+  background: rgba(30, 30, 40, 0.247); /* Ajuste a cor conforme o background desejado */
 }
 
 .fade-enter-active,
