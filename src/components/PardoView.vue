@@ -2,42 +2,20 @@
 import pardoAudio1 from '@/assets/audio/pardo.mp3'
 import pardoAudio2 from '@/assets/audio/pardo2.mp3'
 import pardoAudio3 from '@/assets/audio/pardo3.mp3'
+import { abrirCanalPardo, selecionarAleatorio } from '@/resources'
 import { ref, watch } from 'vue'
 
-const pardo_audio = [pardoAudio1, pardoAudio2, pardoAudio3]
-
-/**
- * Seleciona aleatoriamente um elemento de uma lista fornecida pelo usuário.
- *
- * Args:
- * lista (Array<T>): Lista de elementos do tipo T para seleção aleatória.
- *
- * Returns:
- * T: Elemento selecionado aleatoriamente da lista fornecida.
- *
- * Raises:
- * Error: Lança erro se a lista estiver vazia.
- */
-function selecionarAleatorio<T>(lista: Array<T>): T {
-  // Verifica se a lista está vazia
-  if (lista.length === 0) {
-    throw new Error('A lista não pode estar vazia.')
-  }
-  // Gera índice aleatório
-  const indice: number = Math.floor(Math.random() * lista.length)
-  // Retorna elemento aleatório
-  return lista[indice]
-}
-
 const isHovered = ref(false)
-
 const somTocando = ref(false)
+const pardo_audio = [pardoAudio1, pardoAudio2, pardoAudio3]
 
 watch(isHovered, async () => {
   if (isHovered.value && !somTocando.value) {
     somTocando.value = true
     const audio = new Audio(selecionarAleatorio(pardo_audio))
+    audio.volume = 0.5
     audio.play()
+
     audio.onended = () => {
       somTocando.value = false
     }
@@ -46,7 +24,12 @@ watch(isHovered, async () => {
 </script>
 
 <template>
-  <span @mouseenter="isHovered = true" @mouseleave="isHovered = false" class="pardo-som">
+  <span
+    @click="abrirCanalPardo"
+    @mouseenter="isHovered = true"
+    @mouseleave="isHovered = false"
+    class="pardo-som"
+  >
     <slot></slot>
   </span>
 </template>
@@ -64,6 +47,8 @@ watch(isHovered, async () => {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+
+  cursor: default;
 }
 
 @keyframes rainbow {
