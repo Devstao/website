@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import SrcPardo from '@/assets/pardo.jpg'
 import PardoView from '@/components/PardoView.vue'
-import { onMounted, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 
 const paginaVisivel = ref(false)
 
@@ -10,6 +10,8 @@ onMounted(() => {
     paginaVisivel.value = true
   }, 200)
 })
+
+const windowSize = computed(() => window.innerWidth > 768)
 </script>
 
 <template>
@@ -24,7 +26,7 @@ onMounted(() => {
         </p>
       </div>
 
-      <div class="image-pardo">
+      <div class="image-pardo" v-if="windowSize">
         <img class="src-pardo" :src="SrcPardo" alt="pardo" />
       </div>
     </div>
@@ -37,7 +39,7 @@ onMounted(() => {
   display: flex;
   justify-content: space-between;
   gap: 15px;
-  margin-top: 160px;
+  margin-top: 10px;
 }
 
 .content .image-pardo {
@@ -45,7 +47,7 @@ onMounted(() => {
   align-items: center; /* Alinha verticalmente ao centro */
   justify-content: center; /* Alinha horizontalmente ao centro */
   padding: 25px;
-  width: 50%; /* Mantém metade do espaço do container */
+  width: 10%; /* Mantém metade do espaço do container */
   height: 100%; /* Garante altura total do container */
   border-radius: 5px;
   background-color: rgba(53, 53, 53, 0.397);
@@ -68,6 +70,7 @@ onMounted(() => {
 }
 
 .text-sobre .header-sobre {
+  text-align: center; /* Centraliza o título em telas menores */
   font-weight: bold;
   font-size: 3.2rem;
   font-family: 'Times New Roman', Times, serif;
@@ -90,5 +93,26 @@ onMounted(() => {
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+}
+
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .content .header-sobre {
+    font-size: 1.8rem;
+  }
+
+  .content .text-sobre {
+    width: 90%; /* Ajusta a largura do texto para telas menores */
+  }
+
+  .text-sobre .paragrafo-sobre {
+    width: 100%; /* O parágrafo ocupa toda a largura disponível */
+    font-size: 1rem; /* Ajusta o tamanho da fonte para melhor leitura */
+    padding: 0 10px;
+  }
 }
 </style>

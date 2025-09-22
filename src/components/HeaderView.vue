@@ -132,4 +132,11 @@
   transition: background 0.2s;
   padding: 0.5rem 1rem;
 }
+
+@media (max-width: 768px) {
+  .header {
+    zoom: 0.4;
+    padding: 0 6px;
+  }
+}
 </style>

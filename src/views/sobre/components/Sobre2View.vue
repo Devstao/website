@@ -30,7 +30,7 @@ onMounted(() => {
 .content2 {
   margin: 50px;
   display: flex;
-  justify-content2: space-between;
+  justify-content: space-between;
   gap: 15px;
   margin-top: 125px;
 }
@@ -64,5 +64,26 @@ onMounted(() => {
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+}
+
+@media (max-width: 768px) {
+  .content2 {
+    margin: 60px;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .content2 .header-sobre2 {
+    text-align: center; /* Centraliza o título em telas menores */
+    font-size: 1.8rem;
+  }
+
+  .text-sobre2 .paragrafo-sobre2 {
+    width: 100%;
+    font-size: 1rem;
+    margin-top: 40px;
+    padding: 0 10px;
+  }
 }
 </style>
