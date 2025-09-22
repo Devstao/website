@@ -92,7 +92,6 @@ async function fetchReposAndReadmes(): Promise<void> {
 
   // Limite de concorrência para evitar rate limit (ex: 5 requisições simultâneas)
   const readmes = await fetchWithConcurrency(filtered, fetchReadme, 5)
-  // Filtra valores nulos para garantir tipagem correta
   repos.value = readmes.filter((r): r is RepoReadme => r !== null)
 }
 
