@@ -41,14 +41,6 @@ onMounted((): void => {
   <div class="background-video-wrapper">
     <div class="background-blur"></div>
     <!-- Vídeo local como background -->
-    <video
-      ref="videoRef"
-      class="background-video"
-      src="@/assets/background.mp4"
-      autoplay
-      loop
-      playsinline
-    ></video>
     <div class="background-overlay"></div>
 
     <RouterView v-slot="{ Component }" class="margin-header">

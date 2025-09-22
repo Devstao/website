@@ -1,13 +1,16 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import MainView from './components/MainView.vue'
 
 const router = useRouter()
+const route = useRoute()
 onMounted(() => {
-  setTimeout(() => {
-    router.push({ name: 'sobre' })
-  }, 15000) // Redireciona após 8 segundos (8000 milissegundos)
+  if (route.name === 'home') {
+    setTimeout(() => {
+      router.push({ name: 'sobre' })
+    }, 15000)
+  }
 })
 </script>
 
