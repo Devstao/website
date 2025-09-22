@@ -32,7 +32,7 @@ onMounted(() => {
   display: flex;
   justify-content2: space-between;
   gap: 15px;
-  margin-top: 85px;
+  margin-top: 125px;
 }
 
 .content2 .text-sobre2 {

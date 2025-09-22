@@ -11,7 +11,7 @@ import { RouterLink } from 'vue-router'
         Comunidade oficial de desenvolvedores do <PardoView>Renato Impera</PardoView>.<br />
         Estudo, networking e projetos colaborativos para todos.
       </p>
-      <RouterLink :to="{ name: 'projetos' }" class="hero-cta"> Projetos DEVstão </RouterLink>
+      <RouterLink :to="{ name: 'sobre' }" class="hero-cta"> Sobre o DEVstão </RouterLink>
     </div>
   </section>
 </template>

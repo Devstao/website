@@ -18,7 +18,7 @@ onMounted(() => {
       <div class="text-sobre">
         <h1 class="header-sobre">Sobre a Comunidade</h1>
         <p class="paragrafo-sobre">
-          <span style="font-weight: bold">DEVstão</span> é a organização oficial da comunidade de
+          <span style="font-weight: bold">DEVstão</span> é a organização da comunidade de
           desenvolvedores do <PardoView>Renato Impera</PardoView> (vulgo PARDO). Um espaço criado
           para estudo, networking e desenvolvimento de projetos colaborativos.
         </p>
@@ -76,7 +76,7 @@ onMounted(() => {
 .text-sobre .paragrafo-sobre {
   margin-top: 90px;
   width: 75%;
-  font-size: 1.3rem;
+  font-size: 1.7rem;
   font-family:
     'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana,
     sans-serif;
