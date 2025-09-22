@@ -37,6 +37,7 @@ onMounted(() => {
   display: flex;
   justify-content: space-between;
   gap: 15px;
+  margin-top: 160px;
 }
 
 .content .image-pardo {

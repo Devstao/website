@@ -1,17 +1,21 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import PardoView from '@/components/PardoView.vue'
+import { RouterLink } from 'vue-router'
+</script>
 
 <template>
   <section class="hero">
     <div class="hero-content">
-      <h1 class="hero-title">Sobre nós</h1>
-      <p class="hero-subtitle">Sem nada por enquanto, volte mais tarde!</p>
-      <a href="https://linktr.ee/BavarianGrove" class="hero-cta" target="_blank">
-        Entre na comunidade
-      </a>
+      <h1 class="hero-title">DEVstão</h1>
+      <p class="hero-subtitle">
+        Comunidade oficial de desenvolvedores do <PardoView>Renato Impera</PardoView>.<br />
+        Estudo, networking e projetos colaborativos para todos.
+      </p>
+      <RouterLink :to="{ name: 'projetos' }" class="hero-cta"> Projetos DEVstão </RouterLink>
     </div>
   </section>
 </template>
-<style scoped>
+<style lang="css" scoped>
 .hero {
   display: flex;
   align-items: center;
@@ -19,6 +23,7 @@
   min-height: 60vh;
   color: #fff;
   padding: 2rem;
+  margin-top: 100px;
   margin-bottom: 150px;
 }
 .hero-content {
@@ -33,7 +38,8 @@
 }
 .hero-subtitle {
   font-size: 1.2rem;
-  margin-bottom: 2rem;
+  margin-top: 3rem;
+  margin-bottom: 2.5rem;
   line-height: 1.6;
 }
 .hero-cta {

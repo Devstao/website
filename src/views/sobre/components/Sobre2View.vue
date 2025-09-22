@@ -12,7 +12,7 @@ onMounted(() => {
 
 <template>
   <Transition name="fade" mode="out-in">
-    <div class="content" v-if="paginaVisivel">
+    <div class="content2" v-if="paginaVisivel">
       <div class="text-sobre2">
         <h1 class="header-sobre2">O que você encontrar aqui</h1>
         <ul class="paragrafo-sobre2">
@@ -27,15 +27,15 @@ onMounted(() => {
 </template>
 
 <style lang="css" scoped>
-.content {
+.content2 {
   margin: 50px;
   display: flex;
-  justify-content: space-between;
+  justify-content2: space-between;
   gap: 15px;
-  margin-top: 75px;
+  margin-top: 85px;
 }
 
-.content .text-sobre2 {
+.content2 .text-sobre2 {
   border-radius: 10px;
   border-style: solid;
   border-width: 3px;
