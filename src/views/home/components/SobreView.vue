@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import SrcPardo from '@/assets/pardo.jpg'
+import PardoView from '@/components/PardoView.vue'
 import { onMounted, ref } from 'vue'
 
 const paginaVisivel = ref(false)
@@ -18,8 +19,8 @@ onMounted(() => {
         <h1 class="header-sobre">Sobre a Comunidade</h1>
         <p class="paragrafo-sobre">
           <span style="font-weight: bold">DEVstão</span> é a organização oficial da comunidade de
-          desenvolvedores do <span style="font-weight: bold">Renato Impera</span> (vulgo PARDO). Um
-          espaço criado para estudo, networking e desenvolvimento de projetos colaborativos.
+          desenvolvedores do <PardoView>Renato Impera</PardoView> (vulgo PARDO). Um espaço criado
+          para estudo, networking e desenvolvimento de projetos colaborativos.
         </p>
       </div>
 

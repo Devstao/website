@@ -20,9 +20,9 @@
           </RouterLink>
         </li>
         <li class="nav-items-bavarian-grove">
-          <a class="btn-bavarian-grove" href="https://linktr.ee/BavarianGrove" target="_blank"
-            >Comunidade</a
-          >
+          <a class="btn-bavarian-grove" href="https://linktr.ee/BavarianGrove" target="_blank">
+            Entre para a Comunidade
+          </a>
         </li>
       </ul>
     </nav>

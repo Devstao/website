@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import PardoView from '@/components/PardoView.vue'
 import { RouterLink } from 'vue-router'
 </script>
 
@@ -7,7 +8,7 @@ import { RouterLink } from 'vue-router'
     <div class="hero-content">
       <h1 class="hero-title">DEVstão</h1>
       <p class="hero-subtitle">
-        Comunidade oficial de desenvolvedores do Renato Impera.<br />
+        Comunidade oficial de desenvolvedores do <PardoView>Renato Impera</PardoView>.<br />
         Estudo, networking e projetos colaborativos para todos.
       </p>
       <RouterLink :to="{ name: 'projetos' }" class="hero-cta"> Projetos DEVstão </RouterLink>

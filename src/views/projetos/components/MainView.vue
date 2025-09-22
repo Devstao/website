@@ -5,7 +5,9 @@
     <div class="hero-content">
       <h1 class="hero-title">Projetos</h1>
       <p class="hero-subtitle">Sem Projetos por enquanto, volte mais tarde!</p>
-      <a href="https://linktr.ee/BavarianGrove" class="hero-cta"> Entre na comunidade </a>
+      <a href="https://linktr.ee/BavarianGrove" class="hero-cta" target="_blank">
+        Entre na comunidade
+      </a>
     </div>
   </section>
 </template>
