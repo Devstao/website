@@ -97,7 +97,7 @@ onMounted((): void => {
   height: 100vh;
   z-index: 0;
   pointer-events: none;
-  filter: blur(96px) brightness(0.7);
+  filter: blur(36px) brightness(0.7);
   object-fit: cover;
 }
 
@@ -108,7 +108,7 @@ onMounted((): void => {
   width: 100vw;
   height: 100vh;
   z-index: 1;
-  backdrop-filter: blur(96px);
+  backdrop-filter: blur(36px);
 }
 
 .background-overlay {

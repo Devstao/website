@@ -32,6 +32,19 @@ interface GithubRepo {
 
 const repos = ref<RepoReadme[]>([])
 
+/**
+*****************************************************************************
+* Implemente busca dos READMEs sem exceder limites e ignore repositórios sem README *
+*****************************************************************************
+Args:
+  Nenhum argumento é necessário.
+
+Returns:
+  void: Não retorna valor.
+
+Raises:
+  Nenhuma exceção é lançada.
+*/
 async function fetchReposAndReadmes(): Promise<void> {
   // Busca todos os repositórios da organização
   const res = await fetch('https://api.github.com/orgs/Devstao/repos')
@@ -40,22 +53,47 @@ async function fetchReposAndReadmes(): Promise<void> {
     (repo) => repo.name !== 'website' && repo.name !== '.github',
   )
 
-  // Para cada repositório, busca o README
-  const promises: Promise<RepoReadme>[] = filtered.map(async (repo) => {
+  // Função utilitária para limitar requisições concorrentes
+  async function fetchWithConcurrency<T>(
+    items: GithubRepo[],
+    handler: (repo: GithubRepo) => Promise<T>,
+    limit: number,
+  ): Promise<T[]> {
+    const results: T[] = []
+    let idx = 0
+    async function next(): Promise<void> {
+      if (idx >= items.length) return
+      const current = idx++
+      const result = await handler(items[current])
+      if (result) results.push(result)
+      await next()
+    }
+    await Promise.all(
+      Array(limit)
+        .fill(0)
+        .map(() => next()),
+    )
+    return results
+  }
+
+  // Handler para buscar README e ignorar repositórios sem README
+  async function fetchReadme(repo: GithubRepo): Promise<RepoReadme | null> {
     const readmeRes = await fetch(`https://api.github.com/repos/Devstao/${repo.name}/readme`)
     if (readmeRes.ok) {
       const readmeData: { content: string } = await readmeRes.json()
-      // Decodifica o conteúdo base64
-      // Decodifica o conteúdo base64 para UTF-8 corretamente
       const binary = atob(readmeData.content)
       const bytes = Uint8Array.from(binary, (c) => c.charCodeAt(0))
       const content: string = new TextDecoder('utf-8').decode(bytes)
       return { name: repo.name, readme: content }
     }
-    return { name: repo.name, readme: 'README não encontrado.' }
-  })
+    // Ignora repositórios sem README
+    return null
+  }
 
-  repos.value = await Promise.all(promises)
+  // Limite de concorrência para evitar rate limit (ex: 5 requisições simultâneas)
+  const readmes = await fetchWithConcurrency(filtered, fetchReadme, 5)
+  // Filtra valores nulos para garantir tipagem correta
+  repos.value = readmes.filter((r): r is RepoReadme => r !== null)
 }
 
 onMounted(fetchReposAndReadmes)
