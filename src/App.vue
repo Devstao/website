@@ -21,9 +21,37 @@ Raises:
   Nenhuma exceção é lançada.
 */
 onMounted((): void => {
-  // # Define o volume do vídeo para 10% ao montar o componente
+  // # Função para inicializar e aumentar gradualmente o volume do vídeo
+  function inicializaVolumeVideo(): void {
+    if (videoRef.value) {
+      videoRef.value.volume = 0
+      const targetVolume = 0.0005
+      const step = 0.00001
+      const interval = setInterval(() => {
+        if (videoRef.value && videoRef.value.volume < targetVolume) {
+          videoRef.value.volume = Math.min(videoRef.value.volume + step, targetVolume)
+        } else {
+          clearInterval(interval)
+        }
+      }, 110) // Ajuste o intervalo conforme necessário
+      setTimeout(() => {
+        videoRef.value?.play()
+      }, 300)
+    }
+  }
+
+  // # Inicializa o volume ao montar o componente
+  inicializaVolumeVideo()
+
+  // # Reseta o volume toda vez que o vídeo reinicia (evento 'ended' ou 'loop')
   if (videoRef.value) {
-    videoRef.value.volume = 0.002
+    videoRef.value.addEventListener('ended', inicializaVolumeVideo)
+    videoRef.value.addEventListener('play', () => {
+      // # Se o vídeo reiniciar por loop, reinicializa o volume
+      if (videoRef.value?.currentTime === 0) {
+        inicializaVolumeVideo()
+      }
+    })
   }
 })
 </script>
@@ -69,7 +97,7 @@ onMounted((): void => {
   height: 100vh;
   z-index: 0;
   pointer-events: none;
-  filter: blur(26px) brightness(0.7);
+  filter: blur(96px) brightness(0.7);
   object-fit: cover;
 }
 
@@ -80,7 +108,7 @@ onMounted((): void => {
   width: 100vw;
   height: 100vh;
   z-index: 1;
-  backdrop-filter: blur(26px);
+  backdrop-filter: blur(96px);
 }
 
 .background-overlay {

@@ -1,10 +1,72 @@
 <script setup lang="ts">
-import MainView from './components/MainView.vue'
+/**
+*****************************************************************************
+* Busca e exibe os READMEs dos repositórios da organização Devstao, exceto o website *
+*****************************************************************************
+Args:
+  Nenhum argumento é necessário.
+
+Returns:
+  void: Não retorna valor.
+
+Raises:
+  Nenhuma exceção é lançada.
+*/
+import { marked } from 'marked'
+import { onMounted, ref } from 'vue'
+
+/**
+ * Interface para o conteúdo do README de cada repositório.
+ */
+interface RepoReadme {
+  name: string
+  readme: string
+}
+
+/**
+ * Interface para o repositório retornado pela API do GitHub.
+ */
+interface GithubRepo {
+  name: string
+}
+
+const repos = ref<RepoReadme[]>([])
+
+async function fetchReposAndReadmes(): Promise<void> {
+  // Busca todos os repositórios da organização
+  const res = await fetch('https://api.github.com/orgs/Devstao/repos')
+  const data: GithubRepo[] = await res.json()
+  const filtered: GithubRepo[] = data.filter(
+    (repo) => repo.name !== 'website' && repo.name !== '.github',
+  )
+
+  // Para cada repositório, busca o README
+  const promises: Promise<RepoReadme>[] = filtered.map(async (repo) => {
+    const readmeRes = await fetch(`https://api.github.com/repos/Devstao/${repo.name}/readme`)
+    if (readmeRes.ok) {
+      const readmeData: { content: string } = await readmeRes.json()
+      // Decodifica o conteúdo base64
+      // Decodifica o conteúdo base64 para UTF-8 corretamente
+      const binary = atob(readmeData.content)
+      const bytes = Uint8Array.from(binary, (c) => c.charCodeAt(0))
+      const content: string = new TextDecoder('utf-8').decode(bytes)
+      return { name: repo.name, readme: content }
+    }
+    return { name: repo.name, readme: 'README não encontrado.' }
+  })
+
+  repos.value = await Promise.all(promises)
+}
+
+onMounted(fetchReposAndReadmes)
 </script>
 
 <template>
   <div class="on-center">
-    <MainView />
+    <div v-for="repo in repos" :key="repo.name" class="repo-readme">
+      <h2>{{ repo.name }}</h2>
+      <pre v-html="marked(repo.readme)" class="readme-content"></pre>
+    </div>
   </div>
 </template>
 
@@ -16,5 +78,21 @@ import MainView from './components/MainView.vue'
   height: calc(100% - 90px);
   padding: 6px;
   overflow-y: auto;
+}
+
+.repo-readme {
+  margin: 65px;
+  background-color: rgba(53, 53, 53, 0.397);
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.readme-content {
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  font-size: 1rem;
+  color: #eaeaea;
+  white-space: pre-line;
+  word-break: break-word;
 }
 </style>
