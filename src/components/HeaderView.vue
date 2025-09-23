@@ -1,3 +1,13 @@
+<script setup lang="ts">
+import useDaHilux from '@/stores/useDaHilux'
+import { storeToRefs } from 'pinia'
+import { RouterLink } from 'vue-router'
+
+// Referência para o elemento de vídeo
+
+const { videoRef } = storeToRefs(useDaHilux())
+</script>
+
 <template>
   <header class="header">
     <nav class="navbar">
@@ -5,17 +15,32 @@
 
       <ul class="nav-links" style="list-style: none; margin: 0; padding: 0">
         <li class="nav-items">
-          <RouterLink :to="{ name: 'index' }" class="nav-links" active-class="current-item">
+          <RouterLink
+            @click="videoRef?.play()"
+            :to="{ name: 'index' }"
+            class="nav-links"
+            active-class="current-item"
+          >
             Início
           </RouterLink>
         </li>
         <li class="nav-items">
-          <RouterLink :to="{ name: 'sobre' }" class="nav-links" active-class="current-item">
+          <RouterLink
+            @click="videoRef?.play()"
+            :to="{ name: 'sobre' }"
+            class="nav-links"
+            active-class="current-item"
+          >
             Sobre
           </RouterLink>
         </li>
         <li class="nav-items">
-          <RouterLink :to="{ name: 'projetos' }" class="nav-links" active-class="current-item">
+          <RouterLink
+            @click="videoRef?.play()"
+            :to="{ name: 'projetos' }"
+            class="nav-links"
+            active-class="current-item"
+          >
             Projetos
           </RouterLink>
         </li>

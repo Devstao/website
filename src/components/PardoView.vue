@@ -2,28 +2,25 @@
 import pardoAudio1 from '@/assets/audio/pardo.mp3'
 import pardoAudio2 from '@/assets/audio/pardo2.mp3'
 import pardoAudio3 from '@/assets/audio/pardo3.mp3'
-import { abrirCanalPardo } from '@/resources'
-import { ref } from 'vue'
+import { abrirCanalPardo, selecionarAleatorio } from '@/resources'
+import { ref, watch } from 'vue'
 
 const isHovered = ref(false)
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const somTocando = ref(false)
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const pardo_audio = [pardoAudio1, pardoAudio2, pardoAudio3]
 
-// watch(isHovered, async () => {
-//   if (isHovered.value && !somTocando.value) {
-//     somTocando.value = true
-//     const audio = new Audio(selecionarAleatorio(pardo_audio))
-//     audio.volume = 0.5
-//     audio.play()
+watch(isHovered, async () => {
+  if (isHovered.value && !somTocando.value) {
+    somTocando.value = true
+    const audio = new Audio(selecionarAleatorio(pardo_audio))
+    audio.volume = 1
+    audio.play()
 
-//     audio.onended = () => {
-//       somTocando.value = false
-//     }
-//   }
-// })
+    audio.onended = () => {
+      somTocando.value = false
+    }
+  }
+})
 </script>
 
 <template>

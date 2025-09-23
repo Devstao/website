@@ -5,7 +5,7 @@ export default defineStore('dentroDaHiluxStore', () => {
   const videoRef = ref<HTMLVideoElement | null>(null)
   function inicializaVolumeVideo(): void {
     if (videoRef.value) {
-      videoRef.value.volume = 0
+      videoRef.value.volume = 0.00001
       const targetVolume = 0.0035
       const step = 0.00001
       const interval = setInterval(() => {
@@ -14,10 +14,10 @@ export default defineStore('dentroDaHiluxStore', () => {
         } else {
           clearInterval(interval)
         }
-      }, 70) // Ajuste o intervalo conforme necessário
+      }, 25) // Ajuste o intervalo conforme necessário
       setTimeout(() => {
         videoRef.value?.play()
-      }, 300)
+      }, 3000)
     }
   }
 
