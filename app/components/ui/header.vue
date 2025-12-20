@@ -1,12 +1,4 @@
-<script setup lang="ts">
-import useDaHilux from '@/stores/useDaHilux'
-import { storeToRefs } from 'pinia'
-import { RouterLink } from 'vue-router'
-
-// Referência para o elemento de vídeo
-
-const { videoRef } = storeToRefs(useDaHilux())
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <header class="header">
@@ -15,34 +7,19 @@ const { videoRef } = storeToRefs(useDaHilux())
 
       <ul class="nav-links" style="list-style: none; margin: 0; padding: 0">
         <li class="nav-items">
-          <RouterLink
-            @click="videoRef?.play()"
-            :to="{ name: 'index' }"
-            class="nav-links"
-            active-class="current-item"
-          >
+          <NuxtLink :to="{ name: 'index' }" class="nav-links" active-class="current-item">
             Início
-          </RouterLink>
+          </NuxtLink>
         </li>
         <li class="nav-items">
-          <RouterLink
-            @click="videoRef?.play()"
-            :to="{ name: 'sobre' }"
-            class="nav-links"
-            active-class="current-item"
-          >
+          <NuxtLink :to="{ name: 'sobre' }" class="nav-links" active-class="current-item">
             Sobre
-          </RouterLink>
+          </NuxtLink>
         </li>
         <li class="nav-items">
-          <RouterLink
-            @click="videoRef?.play()"
-            :to="{ name: 'projetos' }"
-            class="nav-links"
-            active-class="current-item"
-          >
+          <NuxtLink :to="{ name: 'projetos' }" class="nav-links" active-class="current-item">
             Projetos
-          </RouterLink>
+          </NuxtLink>
         </li>
         <li class="nav-items-bavarian-grove">
           <a class="btn-bavarian-grove" href="https://linktr.ee/BavarianGrove" target="_blank">
@@ -91,9 +68,7 @@ const { videoRef } = storeToRefs(useDaHilux())
 
   padding: 0.5rem 0.8rem;
   border-radius: 4px;
-  transition:
-    background 0.2s,
-    text-decoration 0.2s;
+  transition: background 0.2s, text-decoration 0.2s;
 }
 
 .nav-items a:hover {
@@ -110,10 +85,10 @@ const { videoRef } = storeToRefs(useDaHilux())
   color: var(--ash-gray);
   margin-left: 1rem;
   line-height: 60px;
-  transition: all 0.6;
 }
 
 .navbar-brand:hover {
+  transition: all 0.6;
   animation: rainbow 1.5s linear infinite;
   background: linear-gradient(
     90deg,
@@ -138,9 +113,7 @@ const { videoRef } = storeToRefs(useDaHilux())
 
   padding: 0.5rem 0.8rem;
   border-radius: 2px;
-  transition:
-    background 0.2s,
-    text-decoration 0.2s;
+  transition: background 0.2s, text-decoration 0.2s;
 }
 
 .nav-items-bavarian-grove a:hover {

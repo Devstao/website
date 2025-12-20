@@ -1,0 +1,132 @@
+:root {
+  --color-luxor-gold-50: #fbfaeb;
+  --color-luxor-gold-100: #f6f4cb;
+  --color-luxor-gold-200: #eee89a;
+  --color-luxor-gold-300: #e3d561;
+  --color-luxor-gold-400: #dac235;
+  --color-luxor-gold-500: #caac28;
+  --color-luxor-gold-600: #a8831f;
+  --color-luxor-gold-700: #8b641d;
+  --color-luxor-gold-800: #74511f;
+  --color-luxor-gold-900: #64441f;
+  --color-luxor-gold-950: #39230f;
+
+  --color-lightning-yellow-50: #fdfae9;
+  --color-lightning-yellow-100: #fbf4c6;
+  --color-lightning-yellow-200: #f8e590;
+  --color-lightning-yellow-300: #f4cf50;
+  --color-lightning-yellow-400: #eeb61b;
+  --color-lightning-yellow-500: #dfa013;
+  --color-lightning-yellow-600: #c07b0e;
+  --color-lightning-yellow-700: #99580f;
+  --color-lightning-yellow-800: #7f4614;
+  --color-lightning-yellow-900: #6c3a17;
+  --color-lightning-yellow-950: #3f1d09;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-primary: var(--color-luxor-gold-50);
+    --color-secondary: var(--color-luxor-gold-200);
+    --color-accent: var(--color-electric-violet-300);
+
+    /* Backgrounds */
+    --bg-input: #771b5b62;
+    --bg-card: var(--color-luxor-gold-950);
+    --bg-accent: var(--color-electric-violet-900);
+    --bg-primary: #000000;
+    --bg-secondary: color-mix(in srgb, var(--color-luxor-gold-600) calc(1 * 100%), transparent);
+    --bg-box-shadow: 0 0 5px rgba(255, 254, 254, 0.2);
+    --background-color-container: #1e0416;
+    --background-color-content: color-mix(
+      in srgb,
+      var(--color-luxor-gold-800) calc(0.2 * 100%),
+      transparent
+    );
+
+    --bg-card-log: rgba(246, 177, 235, 0.301);
+    --bg-executions: #86226d;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-primary: var(--color-luxor-gold-900);
+    --color-secondary: var(--color-lightning-yellow-900);
+    --color-accent: var(--color-lightning-yellow-800);
+
+    --bg-card: var(--color-maroon-600);
+    --bg-primary: var(--color-luxor-gold-200);
+    --bg-secondary: color-mix(in srgb, var(--color-luxor-gold-700) calc(0.8 * 100%), transparent);
+
+    --bg-input: #f1bae162;
+    --bg-box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+    --background-color-container: var(--color-luxor-gold-100);
+    --background-color-content: color-mix(
+      in srgb,
+      var(--color-luxor-gold-100) calc(0.2 * 100%),
+      transparent
+    );
+
+    --bg-card-log: rgb(220, 170, 243);
+    --bg-executions: #fad4f4;
+  }
+}
+
+/* =====================
+   Reset & Base Styles
+   ===================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scrollbar-width: none; /* Firefox */
+  transition: color 0.2s, background-color 0.2s;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  letter-spacing: 0.1rem;
+  user-select: none;
+  overflow: hidden;
+  -ms-overflow-style: none; /* IE e Edge antigo */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+
+  color: var(--color-primary) !important;
+}
+
+html {
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+.card-body {
+  border-radius: 0px;
+}
+
+body {
+  background-color: var(--bg-primary) !important;
+  min-height: 100dvh;
+  min-width: 100dvw;
+  line-height: 1.5;
+  color: var(--color-primary);
+  background-color: rgba(0, 0, 0, 0);
+  overflow: hidden;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* =====================
+   Scrollbar
+   ===================== */
+::-webkit-scrollbar {
+  width: 8px;
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--bg-accent);
+  border-radius: 8px;
+}
