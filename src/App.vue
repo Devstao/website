@@ -136,7 +136,9 @@ onMounted((): void => {
   z-index: 3;
   margin-top: 60px;
   width: 100%;
-  height: 100%;
+  height: calc(100dvh - 60px);
+  overflow-y: auto;
+  overflow-x: hidden;
   -ms-overflow-style: none;
   scrollbar-width: none;
 }

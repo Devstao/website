@@ -64,7 +64,7 @@ async function fetchReposAndReadmes(): Promise<void> {
     async function next(): Promise<void> {
       if (idx >= items.length) return
       const current = idx++
-      const result = await handler(items[current])
+      const result = await handler(items[current]!)
       if (result) results.push(result)
       await next()
     }
@@ -103,7 +103,7 @@ onMounted(fetchReposAndReadmes)
   <div class="on-center">
     <div v-for="repo in repos" :key="repo.name" class="repo-readme">
       <h2>{{ repo.name }}</h2>
-      <pre v-html="marked(repo.readme)" class="readme-content"></pre>
+      <div v-html="marked(repo.readme)" class="readme-content"></div>
     </div>
   </div>
 </template>
@@ -119,11 +119,20 @@ onMounted(fetchReposAndReadmes)
 }
 
 .repo-readme {
-  margin: 65px;
+  margin: 16px;
   background-color: rgba(53, 53, 53, 0.397);
   border-radius: 8px;
   padding: 16px;
   margin-bottom: 20px;
+  word-break: break-word;
+  overflow-x: hidden;
+}
+
+@media (min-width: 769px) {
+  .repo-readme {
+    margin: 65px;
+    margin-bottom: 20px;
+  }
 }
 
 .readme-content {

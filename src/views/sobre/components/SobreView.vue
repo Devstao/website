@@ -41,12 +41,12 @@ onMounted(() => {
 }
 
 .content .image-pardo {
-  display: flex; /* Centraliza o conteúdo usando flexbox */
-  align-items: center; /* Alinha verticalmente ao centro */
-  justify-content: center; /* Alinha horizontalmente ao centro */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 25px;
-  width: 50%; /* Mantém metade do espaço do container */
-  height: 100%; /* Garante altura total do container */
+  width: 50%;
+  height: 100%;
   border-radius: 5px;
   background-color: rgba(53, 53, 53, 0.397);
 }
@@ -80,6 +80,35 @@ onMounted(() => {
   font-family:
     'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana,
     sans-serif;
+}
+
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+    margin: 12px;
+    margin-top: 80px;
+    gap: 20px;
+  }
+
+  .content .text-sobre,
+  .content .image-pardo {
+    width: 100%;
+  }
+
+  .content .image-pardo .src-pardo {
+    width: 60%;
+    max-width: 240px;
+  }
+
+  .text-sobre .header-sobre {
+    font-size: 2rem;
+  }
+
+  .text-sobre .paragrafo-sobre {
+    margin-top: 1.5rem;
+    width: 100%;
+    font-size: 1.1rem;
+  }
 }
 
 .fade-enter-active,

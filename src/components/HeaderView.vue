@@ -1,26 +1,76 @@
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const menuOpen = ref(false)
+
+function toggleMenu(): void {
+  menuOpen.value = !menuOpen.value
+}
+
+function closeMenu(): void {
+  menuOpen.value = false
+}
+</script>
+
 <template>
   <header class="header">
     <nav class="navbar">
       <h1 class="navbar-brand" style="">DEVstão</h1>
 
-      <ul class="nav-links" style="list-style: none; margin: 0; padding: 0">
+      <button
+        class="hamburger"
+        :class="{ 'is-open': menuOpen }"
+        @click="toggleMenu"
+        aria-label="Menu"
+        :aria-expanded="menuOpen"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul
+        class="nav-links"
+        :class="{ 'nav-open': menuOpen }"
+        style="list-style: none; margin: 0; padding: 0"
+      >
         <li class="nav-items">
-          <RouterLink :to="{ name: 'index' }" class="nav-links" active-class="current-item">
+          <RouterLink
+            :to="{ name: 'index' }"
+            class="nav-links"
+            active-class="current-item"
+            @click="closeMenu"
+          >
             Início
           </RouterLink>
         </li>
         <li class="nav-items">
-          <RouterLink :to="{ name: 'sobre' }" class="nav-links" active-class="current-item">
+          <RouterLink
+            :to="{ name: 'sobre' }"
+            class="nav-links"
+            active-class="current-item"
+            @click="closeMenu"
+          >
             Sobre
           </RouterLink>
         </li>
         <li class="nav-items">
-          <RouterLink :to="{ name: 'projetos' }" class="nav-links" active-class="current-item">
+          <RouterLink
+            :to="{ name: 'projetos' }"
+            class="nav-links"
+            active-class="current-item"
+            @click="closeMenu"
+          >
             Projetos
           </RouterLink>
         </li>
         <li class="nav-items-bavarian-grove">
-          <a class="btn-bavarian-grove" href="https://linktr.ee/BavarianGrove" target="_blank">
+          <a
+            class="btn-bavarian-grove"
+            href="https://linktr.ee/BavarianGrove"
+            target="_blank"
+            @click="closeMenu"
+          >
             Entre para a Comunidade
           </a>
         </li>
@@ -131,5 +181,86 @@
   text-decoration: none;
   transition: background 0.2s;
   padding: 0.5rem 1rem;
+}
+
+/* Hamburger button — hidden on desktop */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-right: 1rem;
+  z-index: 10;
+}
+
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: var(--ash-gray);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.hamburger.is-open span:nth-child(1) {
+  transform: translateY(8.5px) rotate(45deg);
+}
+
+.hamburger.is-open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.is-open span:nth-child(3) {
+  transform: translateY(-8.5px) rotate(-45deg);
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: linear-gradient(180deg, #29230ade 5%, #000000ee 100%);
+    padding: 1rem 0;
+    margin-right: 0 !important;
+    height: auto;
+    z-index: 100;
+  }
+
+  .nav-links.nav-open {
+    display: flex;
+  }
+
+  .nav-items,
+  .nav-items-bavarian-grove {
+    width: 100%;
+    padding: 0.25rem 1rem;
+  }
+
+  .nav-items a,
+  .nav-items-bavarian-grove {
+    display: block;
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+    min-height: 44px;
+    line-height: 1.4;
+  }
+
+  .btn-bavarian-grove {
+    display: inline-block;
+    margin-top: 0.25rem;
+  }
 }
 </style>

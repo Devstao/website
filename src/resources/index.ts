@@ -35,13 +35,13 @@ export function selecionarAleatorio<T>(lista: Array<T>): T {
   // Acumula pesos para seleção
   let acumulado = 0
   for (let i = 0; i < lista.length; i++) {
-    acumulado += pesos[i]
+    acumulado += pesos[i]!
     if (r < acumulado) {
-      return lista[i]
+      return lista[i] as T
     }
   }
   // Retorna último elemento como fallback
-  return lista[lista.length - 1]
+  return lista[lista.length - 1] as T
 }
 
 export function abrirCanalPardo() {

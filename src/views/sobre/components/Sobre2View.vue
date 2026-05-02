@@ -30,7 +30,7 @@ onMounted(() => {
 .content2 {
   margin: 50px;
   display: flex;
-  justify-content2: space-between;
+  justify-content: space-between;
   gap: 15px;
   margin-top: 125px;
 }
@@ -54,6 +54,23 @@ onMounted(() => {
   margin-top: 90px;
   width: 75%;
   font-size: 1.7rem;
+}
+
+@media (max-width: 768px) {
+  .content2 {
+    margin: 12px;
+    margin-top: 40px;
+  }
+
+  .text-sobre2 .header-sobre2 {
+    font-size: 2rem;
+  }
+
+  .text-sobre2 .paragrafo-sobre2 {
+    margin-top: 1.5rem;
+    width: 100%;
+    font-size: 1.1rem;
+  }
 }
 
 .fade-enter-active,
